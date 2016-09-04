@@ -5,14 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.godsmiracle.jincao.adminuser.AdminUserServiec;
 import com.godsmiracle.jincao.common.util.ExtraSpringHibernateTemplate;
 import com.godsmiracle.jincao.common.util.Paging;
-import com.godsmiracle.jincao.pub.bsc.dao.po.AdminUser;
-import com.godsmiracle.jincao.pub.bsc.dao.po.Role;
 import com.godsmiracle.jincao.pub.bsc.dao.po.RolePermission;
 import com.godsmiracle.jincao.role.RolePermissionService;
-import com.godsmiracle.jincao.role.RoleService;
 
 
 @Service
@@ -31,7 +27,27 @@ public class RolePermissionServiecImpl implements RolePermissionService {
 	public void sava(RolePermission entity) {
 		extraSpringHibernateTemplate.saveByPoc(entity);
 	}
+	
+	@Override
+	public void remove(RolePermission entity) {
+		extraSpringHibernateTemplate.deleteByPoc(entity);
+	}
 
+	@Override
+	public void removeAll(List<RolePermission> list) {
+		extraSpringHibernateTemplate.removeAll(list);
+	}
+	
+	@Override
+	public void update(RolePermission entity) {
+		extraSpringHibernateTemplate.updataByPoc(entity);
+	}
+	
+	@Override
+	public void updateAll(List<RolePermission> list) {
+		extraSpringHibernateTemplate.updataAll(list);
+	}
+	
 	@Override
 	public void saveAll(List<RolePermission> listAdminUser) {
 		extraSpringHibernateTemplate.saveAll(listAdminUser);

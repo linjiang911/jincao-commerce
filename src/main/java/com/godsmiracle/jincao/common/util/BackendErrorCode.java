@@ -1,7 +1,8 @@
 package com.godsmiracle.jincao.common.util;
 
 public enum BackendErrorCode implements ErrorCode {
-	exception(6, null), //
+	DATA_EXCEPTION(7, "数据异常"), //
+	EXCEPTION(6, null), //
 	DATABASE_ERROR(5, "数据库错误"), //
 	ACCOUNTORPWD_CANNOT_NULL(4,"账号或密码不能为空"),
 	ACCOUNT_EXIST(3, "帐号已存在"), //

@@ -27,7 +27,27 @@ public class PermissionServiecImpl implements PermissionService {
 	public void sava(Permission entity) {
 		extraSpringHibernateTemplate.saveByPoc(entity);
 	}
+	
+	@Override
+	public void remove(Permission entity) {
+		extraSpringHibernateTemplate.deleteByPoc(entity);
+	}
 
+	@Override
+	public void removeAll(List<Permission> list) {
+		extraSpringHibernateTemplate.removeAll(list);
+	}
+	
+	@Override
+	public void update(Permission entity) {
+		extraSpringHibernateTemplate.updataByPoc(entity);
+	}
+	
+	@Override
+	public void updateAll(List<Permission> list) {
+		extraSpringHibernateTemplate.updataAll(list);
+	}
+	
 	@Override
 	public void saveAll(List<Permission> listAdminUser) {
 		extraSpringHibernateTemplate.saveAll(listAdminUser);

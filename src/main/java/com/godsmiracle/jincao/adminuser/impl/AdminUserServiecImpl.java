@@ -9,6 +9,7 @@ import com.godsmiracle.jincao.adminuser.AdminUserServiec;
 import com.godsmiracle.jincao.common.util.ExtraSpringHibernateTemplate;
 import com.godsmiracle.jincao.common.util.Paging;
 import com.godsmiracle.jincao.pub.bsc.dao.po.AdminUser;
+import com.godsmiracle.jincao.pub.bsc.dao.po.AdminUser;
 
 
 @Service
@@ -25,9 +26,29 @@ public class AdminUserServiecImpl implements AdminUserServiec {
 
 	@Override
 	public void sava(AdminUser entity) {
-		extraSpringHibernateTemplate.getHibernateTemplate().save(entity);
+		extraSpringHibernateTemplate.saveByPoc(entity);
+	}
+	
+	@Override
+	public void remove(AdminUser entity) {
+		extraSpringHibernateTemplate.deleteByPoc(entity);
 	}
 
+	@Override
+	public void removeAll(List<AdminUser> list) {
+		extraSpringHibernateTemplate.removeAll(list);
+	}
+	
+	@Override
+	public void update(AdminUser entity) {
+		extraSpringHibernateTemplate.updataByPoc(entity);
+	}
+	
+	@Override
+	public void updateAll(List<AdminUser> list) {
+		extraSpringHibernateTemplate.updataAll(list);
+	}
+	
 	@Override
 	public void saveAll(List<AdminUser> listAdminUser) {
 		extraSpringHibernateTemplate.saveAll(listAdminUser);

@@ -5,7 +5,7 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
 import com.alibaba.fastjson.JSONObject;
 
 public class CommonResp {
-	public static final int code_success = 0;
+	public static final int CODE_SUCCESS = 0;
 
 	private Integer code = null;
 	private String errorMessage = null;
@@ -26,7 +26,7 @@ public class CommonResp {
 	}
 
 	public static CommonResp buildErrorResp(Throwable throwable) {
-		return new CommonResp(BackendErrorCode.exception.getCode(), ExceptionUtils.getStackTrace(throwable));
+		return new CommonResp(BackendErrorCode.EXCEPTION.getCode(), ExceptionUtils.getStackTrace(throwable));
 	}
 
 	public static CommonResp buildErrorResp(ErrorCode errorCode) {
@@ -38,11 +38,11 @@ public class CommonResp {
 	}
 
 	public static CommonResp buildSuccessResp(Object response) {
-		return new CommonResp(code_success, null, response);
+		return new CommonResp(CODE_SUCCESS, null, response);
 	}
 
 	public static CommonResp buildSuccessResp() {
-		return new CommonResp(code_success, null, null);
+		return new CommonResp(CODE_SUCCESS, null, null);
 	}
 
 	public String toJsonString() {

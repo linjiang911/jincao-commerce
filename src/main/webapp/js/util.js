@@ -2,17 +2,32 @@
 function httpJump(url){
 	window.location.href=url;
 }
-function httpJump1(url){
-	alert(url);
+//url跳转
+function httpOpen(url){
+	window.open(url,"iframe0");
 }
 
 //刷新
 function refresh(){
     for( var i = 0; i < arguments.length;i++){  
     	$(arguments[i]).val("");
-    }  
+    } 
 }  
 
+//input赋值
+function assign(){
+    for( var i = 0; i < arguments.length;i+=2){  
+    	$(arguments[i]).val(arguments[i+1]);
+    } 
+} 
+//select赋值
+function assignSelect(){
+    for( var i = 0; i < arguments.length;i+=2){
+    	for(var j = 0; j < arguments[i+1].length;j++){
+    		$(arguments[i]).append('<option value='+arguments[i+1][j].id+'>'+arguments[i+1][j].name+'</option>');
+    	}
+    } 
+} 
 //错误信息提示
 function verifyClass(element,merrorMessage){
 	$(element).val("");

@@ -27,7 +27,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="logo-element">H+
+                        <div class="logo-element">今草后台
                         </div>
                     </li>
                     <li>
@@ -42,12 +42,6 @@
                             </li>
                             <li>
                                 <a class="J_menuItem" href="role_list.jsp">查看所有角色</a>
-                            </li>
-                            <li>
-                                <a class="J_menuItem" href="index_v3.html">查看用户角色</a>
-                            </li>
-                            <li>
-                                <a class="J_menuItem" href="index_v4.html">给用户分配角色</a>
                             </li>
                         </ul>
 

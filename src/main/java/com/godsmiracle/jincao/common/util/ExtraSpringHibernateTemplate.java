@@ -48,6 +48,8 @@ public interface ExtraSpringHibernateTemplate {
 
 	void deleteAllByPropEq(Class<?> poc, String propName, Object propValue) throws DataAccessException;
 	
+	<T> void removeAll(List<T> list) throws DataAccessException;
+	
 	<T> void saveAll(List<T> list) throws DataAccessException;
 	
 	<T> void updataAll(List<T> list) throws DataAccessException;

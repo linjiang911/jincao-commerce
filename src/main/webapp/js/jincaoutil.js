@@ -4,6 +4,35 @@ function addCheckbox(element,data1,data2){
 			+"<input type='checkbox' name='PermissionId'  value='"+data1+"'/>"
 			+data2+"</label>");
 }
+function addCheckboxst(element,data1,data2){
+	$(element).append("<label class='checkbox-inline i-checks'>"
+			+"<input type='checkbox' name='PermissionId' checked='checked' value='"+data1+"'/>"
+			+data2+"</label>");
+}
+
+function addCheckboxAll(element,data1,data2,name1,name2){
+	$(element).empty();
+	for(var i=0;i<data1.length;i++){
+		var falge=false;
+		if(data2.length>0){
+			for(var j=0;j<data2.length;j++){
+				if(data1[i].name==data2[j].name){
+					falge=true;
+					break;
+				}
+			}
+		}
+		if(falge){
+			$(element).append("<label class='checkbox-inline i-checks'>"
+					+"<input type='checkbox' name='PermissionId' checked='checked' value='"+data1[i].id+"'/>"
+					+data1[i].name+"</label>");
+		}else{
+			$(element).append("<label class='checkbox-inline i-checks'>"
+					+"<input type='checkbox' name='PermissionId'  value='"+data1[i].id+"'/>"
+					+data1[i].name+"</label>");
+		}
+	}
+}
 //封装checkbox参数 携带name参数
 function packageCheckboxPath(name){
 	var items=document.getElementsByName(name);
@@ -18,6 +47,10 @@ function packageCheckboxPath(name){
 	return arr;
 }
 
+function showInfo(element,data1){
+	$(element).append("<label>"
+			+data1+"</label>");
+}
 //信息显示
 $(document).ready(function(){
 	setTimeout(function(){

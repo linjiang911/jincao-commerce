@@ -29,7 +29,27 @@ public class RoleServiecImpl implements RoleService {
 	public void sava(Role entity) {
 		extraSpringHibernateTemplate.saveByPoc(entity);
 	}
+	
+	@Override
+	public void remove(Role entity) {
+		extraSpringHibernateTemplate.deleteByPoc(entity);
+	}
 
+	@Override
+	public void removeAll(List<Role> list) {
+		extraSpringHibernateTemplate.removeAll(list);
+	}
+	
+	@Override
+	public void update(Role entity) {
+		extraSpringHibernateTemplate.updataByPoc(entity);
+	}
+	
+	@Override
+	public void updateAll(List<Role> list) {
+		extraSpringHibernateTemplate.updataAll(list);
+	}
+	
 	@Override
 	public void saveAll(List<Role> listAdminUser) {
 		extraSpringHibernateTemplate.saveAll(listAdminUser);

@@ -3,9 +3,7 @@ package com.godsmiracle.jincao.role;
 import java.util.List;
 
 import com.godsmiracle.jincao.common.util.Paging;
-import com.godsmiracle.jincao.pub.bsc.dao.po.AdminUser;
 import com.godsmiracle.jincao.pub.bsc.dao.po.Permission;
-import com.godsmiracle.jincao.pub.bsc.dao.po.Role;
 /**
  * adminUser
  * @author linjiang
@@ -26,5 +24,12 @@ public interface PermissionService {
 	Permission findByFristOneHQL(String hql, Object...object)throws Exception;
 
 	Permission findOneFrist(String propName, Object object);
-	
+
+	void remove(Permission entity);
+
+	void removeAll(List<Permission> entityList);
+
+	void update(Permission entity);
+
+	void updateAll(List<Permission> list);
 }

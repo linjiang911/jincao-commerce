@@ -25,5 +25,13 @@ public interface RoleService {
 	Role findByFristOneHQL(String hql, Object...object)throws Exception;
 
 	Role findOneFrist(String propName, Object object);
+
+	void remove(Role entity);
+
+	void removeAll(List<Role> entityList);
+
+	void update(Role entity);
+
+	void updateAll(List<Role> list);
 	
 }

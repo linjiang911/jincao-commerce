@@ -21,30 +21,30 @@ public class PermissionMenu extends PO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(unique = true, nullable = false)
-	private Integer PermissionMenuId; 			//权限菜单Id
-	private Integer PermissionId;					//权限Id
-	private Integer MenuId;						//菜单Id
+	private Integer permissionMenuId; 			//权限菜单Id
+	private Integer permissionId;					//权限Id
+	private Integer menuId;						//菜单Id
 	@Override
 	public Serializable getId() {
-		return PermissionMenuId;
+		return permissionMenuId;
 	}
 	public Integer getPermissionMenuId() {
-		return PermissionMenuId;
+		return permissionMenuId;
 	}
 	public void setPermissionMenuId(Integer permissionMenuId) {
-		PermissionMenuId = permissionMenuId;
+		this.permissionMenuId = permissionMenuId;
 	}
 	public Integer getPermissionId() {
-		return PermissionId;
+		return permissionId;
 	}
 	public void setPermissionId(Integer permissionId) {
-		PermissionId = permissionId;
+		this.permissionId = permissionId;
 	}
 	public Integer getMenuId() {
-		return MenuId;
+		return menuId;
 	}
 	public void setMenuId(Integer menuId) {
-		MenuId = menuId;
+		this.menuId = menuId;
 	}
 	
 }

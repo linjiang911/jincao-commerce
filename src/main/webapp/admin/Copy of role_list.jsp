@@ -15,14 +15,11 @@
 <link href="../css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
 
 <!-- jqgrid-->
-<link href="../css/plugins/jqgrid/ui.jqgridffe4.css?0820" rel="stylesheet">
-<!-- Morris -->
-<link href="../css/plugins/iCheck/custom.css" rel="stylesheet">
-<link href="../css/animate.min.css" rel="stylesheet">
-<link href="../css/style.min862f.css" rel="stylesheet">
+<link href="../css/plugins/jqgrid/ui.jqgridffe4.css?0820"
+	rel="stylesheet">
 
-<!-- Gritter -->
-<link href="../js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+<link href="../css/animate.min.css" rel="stylesheet">
+<link href="../css/style.min862f.css?v=4.1.0" rel="stylesheet">
 
 <style>
 /* Additional style to fix warning dialog position */
@@ -40,18 +37,6 @@
 				<div class="ibox ">
 					<div class="ibox-title">
 						<h5>角色列表</h5>
-						<div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="form_basic.html#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="role_list.jsp">刷新</a>
-                                </li>
-                            </ul>
-                        </div>
 					</div>
 					<div class="ibox-content">
 						<div class="jqGrid_wrapper">
@@ -73,7 +58,11 @@
 	<script type="text/javascript" src="../js/util.js"></script>
 	<script type="text/javascript" src="../js/jincaoutil.js"></script>
 	<script>
-		function ready() {
+		function addall(){
+			$.post("../api/roleAction/addall",function(){
+			});
+		};
+		$(document).ready(function() {
 			$.post("../api/roleAction/all", function(data) {
 				mydata = data.response;
 				$.jgrid.defaults.styleUI = "Bootstrap";
@@ -85,18 +74,16 @@
 					shrinkToFit : true,
 					rowNum : 20,
 					rowList : [ 10, 20, 30 ],
-					colNames : [ "操作","角色Id", "角色名", "角色描述","权限"],
-					colModel : [ {
-						name : "act",
+					colNames : [ "Actions","角色Id", "角色名", "角色描述"],
+					colModel : [ 
+					{name : "act",
 						index : "act",
 						width : 75,
-						sortable : false,
-						editable : false,
-						search:false,
+						sortable : false
 					}, {
 						name : "roleId",
 						index : "roleId",
-						editable : true,
+						editable : false,
 						width : 60,
 					}, {
 						name : "name",
@@ -108,36 +95,27 @@
 						index : "descr",
 						editable : true,
 						width : 100
-					},{
-						name : "permissionNames",
-						index : "permissionNames",
-						width : 120,
-						sortable : false,
-						editable : false,
-						search:false
 					}],
 					gridComplete : function() { 
 					var ids = jQuery("#table_list_2").jqGrid('getDataIDs');
 					 for ( var i = 0; i < ids.length; i++) { 
 					 var cl = ids[i];
-					  be = "<input type='button' class='btn btn-primary btn-xs' value='查看' onclick=\"see(" + cl + ");\" />&nbsp;";
-					  ce = "<input type='button' class='btn btn-primary btn-xs dim' value='删除' onclick=\"remove('" + cl + "');\" />&nbsp;";
-					  se = "<input type='button' class='btn btn-primary btn-xs dim' value='修改' onclick=\"edit('" + cl + "');\" />";
-					  jQuery("#table_list_2").jqGrid('setRowData', ids[i], { act : be  + ce +se});
-					   	}
-					  },
-					pager : "#pager_list_2",
+					  be = "<input type='button' class='btn btn-primary btn-xs' value='查看' onclick=\"see('" + cl + "');\" />&nbsp;";
+					  ce = "<input type='button' class='btn btn-primary btn-xs dim' value='删除' onclick=\"remove('" + cl + "');\" />";
+					  jQuery("#table_list_2").jqGrid('setRowData', ids[i], { act : be  + ce }); } },
 					multiselect : true,
+					pager : "#pager_list_2",
 					viewrecords : true,
-					edit : false,
+					edit : true,
 					add:false,
+					delurl:"../api/roleAction/remove",
 					editurl:"../api/roleAction/update",
 					edittext : "Edit",
 					hidegrid : false
 				});
 				$("#table_list_2").setSelection(4, true);
 				$("#table_list_2").jqGrid("navGrid", "#pager_list_2", {
-					edit : false,
+					edit : true,
 					del : true,
 					add:false,
 					search : true
@@ -149,37 +127,26 @@
 					$("#table_list_2").setGridWidth(width)
 				});
 			});
+		});
+		function see(){
+			httpJump("sss");
 		};
-		function see(path){
-			httpJump("role_see.jsp?roleId="+path);
-		};
-		function edit(path){
-			httpJump("role_edit.jsp?roleId="+path);
-		};
-		function remove(path){
-			var reqData={
-				"id":path
-			};
-			if(window.confirm('你确定要删除该角色吗？')){
-                 $.post("../api/roleAction/remove",reqData,function(data){
-                 if(data.code==0){
-             		$("#"+path).remove();
-                	 showMsg("删除成功");
-                 }
-			});
+		function remove(){
+			if(window.confirm('你确定要取消交易吗？')){
+                 $.post("",function(data){
+					
+					});
                  return true;
               }else{
                  return false;
              }
 			
 		};
-		$(document).ready(function(){
-			ready();
-		});
 	</script>
 	
 </body>
 
 
+<!-- Mirrored from www.zi-han.net/theme/hplus/form_basic.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:19:15 GMT -->
 </html>
 

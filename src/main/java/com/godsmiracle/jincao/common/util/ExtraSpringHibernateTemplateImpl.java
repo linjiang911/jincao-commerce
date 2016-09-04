@@ -191,7 +191,24 @@ public class ExtraSpringHibernateTemplateImpl implements ExtraSpringHibernateTem
 			@Override
 			public Long doInHibernate(Session session) throws HibernateException {
 				for(int i=0;i<list.size();i++){
-					session.save(list.get(i));
+					session.update(list.get(i));
+					if(i%100==0){
+						session.flush();
+						session.clear();
+					}
+				}
+				return 1L;
+			}
+		});
+		
+	}
+	@Override
+	public <T> void removeAll(final List<T> list) throws DataAccessException {
+		hibernateTemplate.executeWithNativeSession(new HibernateCallback<Long>() {
+			@Override
+			public Long doInHibernate(Session session) throws HibernateException {
+				for(int i=0;i<list.size();i++){
+					session.delete(list.get(i));
 					if(i%100==0){
 						session.flush();
 						session.clear();

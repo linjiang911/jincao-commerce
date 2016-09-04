@@ -20,19 +20,19 @@ public class Permission extends PO {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(unique = true, nullable = false)
-	private Integer PermissionId;
+	private Integer permissionId;
 	private String name;
 	@Override
 	public Serializable getId() {
-		return PermissionId;
+		return permissionId;
 	}
 
 	public Integer getPermissionId() {
-		return PermissionId;
+		return permissionId;
 	}
 
 	public void setPermissionId(Integer permissionId) {
-		PermissionId = permissionId;
+		this.permissionId = permissionId;
 	}
 
 

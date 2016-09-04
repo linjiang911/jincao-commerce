@@ -23,7 +23,7 @@ public class RolePermission extends PO{
 		@Column(unique = true, nullable = false)
 		private Integer rolePermissionId; 			//角色权限Id
 		private Integer roleId;						//角色Id
-		private Integer PermissionId;					//权限Id
+		private Integer permissionId;					//权限Id
 		@Override
 		public Serializable getId() {
 			return rolePermissionId;
@@ -41,9 +41,9 @@ public class RolePermission extends PO{
 			this.roleId = roleId;
 		}
 		public Integer getPermissionId() {
-			return PermissionId;
+			return permissionId;
 		}
 		public void setPermissionId(Integer permissionId) {
-			PermissionId = permissionId;
+			this.permissionId = permissionId;
 		}
 }
