@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
  <div class="small-chat-box fadeInRight animated">
-
             <div class="heading" draggable="true">
                 <small class="chat-date pull-right">
                     2015.9.1

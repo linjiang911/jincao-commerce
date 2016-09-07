@@ -13,11 +13,12 @@ import com.godsmiracle.jincao.core.PO;
 
 @Entity
 @Table
-public class AdminUser extends PO {
+public class User extends PO {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(unique=true,nullable=false)
-	private Long adminUserId;
+	private Integer userId;
+	private String phone; 
 	private String account;
 	private String name;
 	private String password;
@@ -30,15 +31,25 @@ public class AdminUser extends PO {
 	@Override
 	public Serializable getId() {
 		// TODO Auto-generated method stub
-		return adminUserId;
+		return userId;
 	}
-	public Long getAdminUserId() {
-		return adminUserId;
-	}
-	public void setAdminUserId(Long adminUserId) {
-		this.adminUserId = adminUserId;
+	public Integer getUserId() {
+		return userId;
 	}
 	
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+	
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+
 	public String getAccount() {
 		return account;
 	}
